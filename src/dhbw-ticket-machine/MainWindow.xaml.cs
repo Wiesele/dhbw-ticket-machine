@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dhbw_ticket_machine.views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace dhbw_ticket_machine
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var menu = new MainMenu();
+            this.Content = menu;
         }
     }
 }
