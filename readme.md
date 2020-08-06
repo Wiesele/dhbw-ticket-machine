@@ -1,4 +1,4 @@
-# assignment-abe1-b1
+# Assignment `dhbw-ticket-machine`
 
 This assignment replaces the exams for the lecture `Applied Business Engineering I, 5th/6th semester 2020, WWI17` of group B1. 
 
@@ -8,6 +8,7 @@ This assignment replaces the exams for the lecture `Applied Business Engineering
     - Any programming language or framework is allowed.
     - CLI application as a client is enough.
     - With own implementation of the actuators: The application must not be decoupled (client and server can run in the same process).
+    - A database is optional (everything can be in memory)
 - Write a documentation
     - Contents
         - Use-Cases
