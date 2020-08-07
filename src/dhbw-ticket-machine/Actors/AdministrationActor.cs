@@ -1,6 +1,7 @@
 ﻿using Akka.Actor;
 using dhbw_ticket_machine.actors.TransactionTypes;
 using dhbw_ticket_machine.Data;
+using dhbw_ticket_machine.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -28,6 +29,10 @@ namespace dhbw_ticket_machine.Actors
                     }
                     Sender.Tell(this.database.Events);
                 }
+            });
+            Receive<Event>(e =>
+            {
+                
             });
         }
 
