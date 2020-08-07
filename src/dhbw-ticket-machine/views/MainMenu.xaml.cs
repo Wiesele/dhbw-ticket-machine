@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace dhbw_ticket_machine.views
+namespace dhbw_ticket_machine.Views
 {
     /// <summary>
     /// Interaktionslogik für MainMenu.xaml
@@ -21,6 +21,11 @@ namespace dhbw_ticket_machine.views
         public MainMenu()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Administration());
         }
     }
 }
