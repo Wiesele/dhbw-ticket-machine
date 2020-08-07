@@ -30,5 +30,10 @@ namespace dhbw_ticket_machine.Views
 
             this.vm.LoadData();
         }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            await this.vm.SaveNewEvent();
+        }
     }
 }
