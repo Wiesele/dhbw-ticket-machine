@@ -1,12 +1,12 @@
-﻿using dhbw_ticket_machine.models;
+﻿using dhbw_ticket_machine.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
-namespace dhbw_ticket_machine.data
+namespace dhbw_ticket_machine.Data
 {
-    public class MockDatabase
+    public class MockDatabase: IDatabase
     {
         /// <summary>
         /// Singelton Pattern
@@ -69,16 +69,16 @@ namespace dhbw_ticket_machine.data
             this.Events.AddRange(lstEvents);
         }
 
-        private MockDatabase Instance { get; set; }
+        private static MockDatabase Instance { get; set; }
 
-        public MockDatabase GetInstance()
+        public static MockDatabase Create()
         {
-            if(this.Instance == null)
+            if(MockDatabase.Instance == null)
             {
-                this.Instance = new MockDatabase();
+                MockDatabase.Instance = new MockDatabase();
             }
 
-            return this.Instance;
+            return MockDatabase.Instance;
         }
 
         public List<Customer> Customers { get; set; }
