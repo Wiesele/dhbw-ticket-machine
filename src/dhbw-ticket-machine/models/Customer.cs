@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace dhbw_ticket_machine.models
+namespace dhbw_ticket_machine.Models
 {
     public class Customer: Entity
     {
