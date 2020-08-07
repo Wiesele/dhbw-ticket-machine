@@ -4,8 +4,10 @@ using System.Text;
 
 namespace dhbw_ticket_machine.Models
 {
-    public class Ticket: Event
+    public class Ticket: Entity
     {
+        public Guid EventId { get; set; }
+        public int Amount { get; set; }
         public DateTime BoughtDate { get; set; }
     }
 }

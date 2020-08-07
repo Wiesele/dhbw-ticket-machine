@@ -10,5 +10,6 @@ namespace dhbw_ticket_machine.Models
         public DateTime Date { get; set; }
         public string Location { get; set; }
         public float Price { get; set; }
+        public int SoldVolume { get; set; }
     }
 }

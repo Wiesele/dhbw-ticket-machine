@@ -21,6 +21,7 @@ namespace dhbw_ticket_machine.Data
 
         private void SeedDatabase()
         {
+            var testEventGuid = Guid.NewGuid();
             // Add seed data here
             var lstEvents = new List<Event>()
             {
@@ -59,14 +60,35 @@ namespace dhbw_ticket_machine.Data
                 new Event()
                 {
                     Date = DateTime.Now,
-                    ID = Guid.NewGuid(),
+                    ID = testEventGuid,
                     Location = "Villingen Schwenningen",
                     Name = "Hallo Welt ",
                     Price = 2.5f
                 },
             };
 
+            var customers = new List<Customer>()
+            {
+                new Customer()
+                {
+                    ID = Guid.NewGuid(),
+                    Adress = "TestAdresse",
+                    Name = "Felix Heß",
+                    Tickets = new List<Ticket>()
+                    {
+                        new Ticket()
+                        {
+                            Amount = 5,
+                            EventId = testEventGuid,
+                            BoughtDate = DateTime.Now,
+                            ID = Guid.NewGuid()
+                        }
+                    }
+                }
+            };
+
             this.Events.AddRange(lstEvents);
+            this.Customers.AddRange(customers);
         }
 
         private static MockDatabase Instance { get; set; }

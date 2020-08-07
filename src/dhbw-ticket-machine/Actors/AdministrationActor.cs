@@ -17,6 +17,15 @@ namespace dhbw_ticket_machine.Actors
             {
                 if(e == TransactionType.GetAll)
                 {
+                    var returnValue = database.Events;
+                    foreach (var customer in database.Customers)
+                    {
+                        foreach (var ticket in customer.Tickets)
+                        {
+                            var holder = returnValue.Find(e => e.ID == ticket.EventId);
+                            holder.SoldVolume += ticket.Amount;
+                        }
+                    }
                     Sender.Tell(this.database.Events);
                 }
             });

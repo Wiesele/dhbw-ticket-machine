@@ -11,17 +11,41 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="60px"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="4*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60px"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="60px"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right">Name</Label>
+                <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right">Ort</Label>
+                <Label Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right">Datum</Label>
+                <Label Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right">Preis</Label>
+                
+                <TextBox Grid.Row="0" Grid.Column="1" Margin="2"></TextBox>
+                <TextBox Grid.Row="1" Grid.Column="1" Margin="2"></TextBox>
+                <DatePicker Grid.Row="0" Grid.Column="3" Margin="2"></DatePicker>
+                <TextBox Grid.Row="1" Grid.Column="3" Margin="2"></TextBox>
+
+            </Grid>
+            <Button Margin="5" Grid.Column="2">Event Hinzufügen</Button>
         </Grid>
         <ListView Grid.Row="1" ItemsSource="{Binding Path=Events, Mode=TwoWay}">
             <!--<ListView.ItemTemplate>
@@ -43,6 +67,7 @@
                     <GridViewColumn Width="120" Header="Ort" DisplayMemberBinding="{Binding Location}"/>
                     <GridViewColumn Width="120" Header="Datum" DisplayMemberBinding="{Binding Date}"/>
                     <GridViewColumn Width="60" Header="Preis" DisplayMemberBinding="{Binding Price}"/>
+                    <GridViewColumn Width="120" Header="Verkaufte Anzahl" DisplayMemberBinding="{Binding SoldVolume}"/>
                 </GridView>
             </ListView.View>
         </ListView>
