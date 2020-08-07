@@ -39,5 +39,18 @@ namespace dhbw_ticket_machine.Views
         {
             this.vm.LoadData();
         }
+
+        private void ComboBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            var box = sender as ComboBox;
+            box.IsDropDownOpen = false;
+            this.vm.LoadSuggestions(box.Text);
+        }
+
+        private void ComboBox_DropDownOpened(object sender, EventArgs e)
+        {
+            var box = sender as ComboBox;
+            box.IsDropDownOpen = false;
+        }
     }
 }

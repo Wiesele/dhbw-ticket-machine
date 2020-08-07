@@ -13,6 +13,7 @@
     <Page.Resources>
         <con:DateConverter x:Key="dateconverter" />
         <con:PriceConverter x:Key="priceonverter" />
+        <con:PriceStringConverter x:Key="pricestringonverter" />
     </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -45,7 +46,7 @@
                 <Label Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right">Preis</Label>
 
                 <TextBox Grid.Row="0" Grid.Column="1" Margin="2" Text="{Binding NewName, Mode=TwoWay}"></TextBox>
-                <TextBox Grid.Row="1" Grid.Column="1" Margin="2" Text="{Binding NewLocation, Mode=TwoWay}"></TextBox>
+                <ComboBox ItemsSource="{Binding Suggestions, Mode=OneWay}" KeyDown="ComboBox_KeyDown" StaysOpenOnEdit="False" DropDownOpened="ComboBox_DropDownOpened" IsEditable="True" Grid.Row="1" Grid.Column="1" Margin="2" Text="{Binding NewLocation, Mode=TwoWay}"></ComboBox>
                 <DatePicker Grid.Row="0" Grid.Column="3" Margin="2" Text="{Binding NewDate, Mode=TwoWay, Converter={StaticResource dateconverter}, StringFormat={}{0:dd.MM.yyyy}}"></DatePicker>
                 <TextBox Grid.Row="1" Grid.Column="3" Margin="2" Text="{Binding NewPrice, Mode=TwoWay, Converter={StaticResource priceonverter}}"></TextBox>
 
@@ -71,7 +72,7 @@
                     <GridViewColumn Width="120" Header="Name" DisplayMemberBinding="{Binding Name}"/>
                     <GridViewColumn Width="120" Header="Ort" DisplayMemberBinding="{Binding Location}"/>
                     <GridViewColumn Width="120" Header="Datum" DisplayMemberBinding="{Binding Date, StringFormat={}{0:dd.MM.yyyy}}"/>
-                    <GridViewColumn Width="60" Header="Preis" DisplayMemberBinding="{Binding Price}"/>
+                    <GridViewColumn Width="60" Header="Preis" DisplayMemberBinding="{Binding Price, Converter={StaticResource pricestringonverter}}"/>
                     <GridViewColumn Width="120" Header="Verkaufte Anzahl" DisplayMemberBinding="{Binding SoldVolume}"/>
                 </GridView>
             </ListView.View>

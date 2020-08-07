@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
+using System.Windows;
 using Akka.Actor;
 using dhbw_ticket_machine.actors.TransactionTypes;
 using dhbw_ticket_machine.Actors;
@@ -35,11 +37,25 @@ namespace dhbw_ticket_machine.ViewModels
         private float _newPrice;
         public float NewPrice { get { return this._newPrice; } set { SetProperty(ref _newPrice, value); } }
 
+
+        private ObservableCollection<string> _suggestions;
+        public ObservableCollection<string> Suggestions { get { return this._suggestions; } set { SetProperty(ref _suggestions, value); } }
+
         public AdministrationViewModel()
         {
             this.ActorSystem = ActorSystem.Create("Admin");
             this.Events = new ObservableCollection<Event>();
+            this.Suggestions = new ObservableCollection<string>();
             this.ResetTextFields();
+        }
+
+        public void LoadSuggestions(string start)
+        {
+            var values = this.Events.GroupBy(e => e.Location).Where(e => e.Key.StartsWith(start)).Select(e => e.Key).OrderBy(e => e);
+
+            var collection = new ObservableCollection<string>();
+            collection.AddRange(values);
+            this.Suggestions = collection;
         }
 
         public async void LoadData()
@@ -52,6 +68,7 @@ namespace dhbw_ticket_machine.ViewModels
             var events = await task as IEnumerable<Event>;
 
             this.Events.AddRange(events);
+            this.LoadSuggestions("");
         }
 
         public async void ResetTextFields()
@@ -72,6 +89,12 @@ namespace dhbw_ticket_machine.ViewModels
                 Price = this.NewPrice,
                 ID = Guid.NewGuid()
             };
+
+            if (!newEvent.IsValid())
+            {
+                var msg = MessageBox.Show("Nicht alle Felder wurden gefüllt!", "Warnung!", MessageBoxButton.OK);
+                return;
+            }
 
 
             var actor = this.ActorSystem.ActorOf<AdministrationActor>();
