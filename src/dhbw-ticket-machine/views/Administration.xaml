@@ -8,7 +8,8 @@
       xmlns:con="clr-namespace:dhbw_ticket_machine.Converter"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Administration">
+      Title="Administration"
+      Loaded="Page_Loaded">
     <Page.Resources>
         <con:DateConverter x:Key="dateconverter" />
         <con:PriceConverter x:Key="priceonverter" />
@@ -45,7 +46,7 @@
 
                 <TextBox Grid.Row="0" Grid.Column="1" Margin="2" Text="{Binding NewName, Mode=TwoWay}"></TextBox>
                 <TextBox Grid.Row="1" Grid.Column="1" Margin="2" Text="{Binding NewLocation, Mode=TwoWay}"></TextBox>
-                <DatePicker Grid.Row="0" Grid.Column="3" Margin="2" Text="{Binding NewDate, Mode=TwoWay, Converter={StaticResource dateconverter}}"></DatePicker>
+                <DatePicker Grid.Row="0" Grid.Column="3" Margin="2" Text="{Binding NewDate, Mode=TwoWay, Converter={StaticResource dateconverter}, StringFormat={}{0:dd.MM.yyyy}}"></DatePicker>
                 <TextBox Grid.Row="1" Grid.Column="3" Margin="2" Text="{Binding NewPrice, Mode=TwoWay, Converter={StaticResource priceonverter}}"></TextBox>
 
             </Grid>
@@ -69,7 +70,7 @@
                     <GridViewColumn Width="240" Header="ID" DisplayMemberBinding="{Binding ID}"/>
                     <GridViewColumn Width="120" Header="Name" DisplayMemberBinding="{Binding Name}"/>
                     <GridViewColumn Width="120" Header="Ort" DisplayMemberBinding="{Binding Location}"/>
-                    <GridViewColumn Width="120" Header="Datum" DisplayMemberBinding="{Binding Date}"/>
+                    <GridViewColumn Width="120" Header="Datum" DisplayMemberBinding="{Binding Date, StringFormat={}{0:dd.MM.yyyy}}"/>
                     <GridViewColumn Width="60" Header="Preis" DisplayMemberBinding="{Binding Price}"/>
                     <GridViewColumn Width="120" Header="Verkaufte Anzahl" DisplayMemberBinding="{Binding SoldVolume}"/>
                 </GridView>

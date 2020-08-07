@@ -75,7 +75,12 @@ namespace dhbw_ticket_machine.ViewModels
 
 
             var actor = this.ActorSystem.ActorOf<AdministrationActor>();
-            actor.Tell(newEvent);
+            // Wait for Item to be inserted
+            var task = actor.Ask(newEvent);
+            await task;
+
+            // Reload List
+            this.LoadData();
 
             this.ResetTextFields();
         }

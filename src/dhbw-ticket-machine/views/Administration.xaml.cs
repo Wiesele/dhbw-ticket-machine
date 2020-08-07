@@ -28,12 +28,16 @@ namespace dhbw_ticket_machine.Views
             InitializeComponent();
             DataContext = vm;
 
-            this.vm.LoadData();
         }
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             await this.vm.SaveNewEvent();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.vm.LoadData();
         }
     }
 }

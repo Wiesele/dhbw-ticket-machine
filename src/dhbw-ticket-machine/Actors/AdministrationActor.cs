@@ -1,6 +1,7 @@
 ﻿using Akka.Actor;
 using dhbw_ticket_machine.actors.TransactionTypes;
 using dhbw_ticket_machine.Data;
+using dhbw_ticket_machine.Extensions;
 using dhbw_ticket_machine.Models;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,10 @@ namespace dhbw_ticket_machine.Actors
                 if(e == TransactionType.GetAll)
                 {
                     var returnValue = database.Events;
+                    foreach (var item in returnValue)
+                    {
+                        item.SoldVolume = 0;
+                    }
                     foreach (var customer in database.Customers)
                     {
                         foreach (var ticket in customer.Tickets)
@@ -32,7 +37,17 @@ namespace dhbw_ticket_machine.Actors
             });
             Receive<Event>(e =>
             {
-                
+                if (e.IsValid())
+                {
+                    e.SoldVolume = 0;
+                    e.ID = Guid.NewGuid();
+                    this.database.Events.Add(e);
+                    Sender.Tell(true);
+                }
+                else
+                {
+                    Sender.Tell(false);
+                }
             });
         }
 
