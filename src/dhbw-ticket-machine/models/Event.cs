@@ -11,5 +11,7 @@ namespace dhbw_ticket_machine.Models
         public string Location { get; set; }
         public float Price { get; set; }
         public int SoldVolume { get; set; }
+        public int DaysBeforSalesStart { get; set; }
+        public int TotalTicketAmount { get; set; }
     }
 }
