@@ -38,6 +38,13 @@ namespace dhbw_ticket_machine.Views.CustomerViews
         {
             this.vm.LoadData();
         }
-       
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(vm.SelectedAmount > vm.SelectedEvent.AvailableTickets)
+            {
+                vm.SelectedAmount = vm.SelectedEvent.AvailableTickets;
+            }
+        }
     }
 }

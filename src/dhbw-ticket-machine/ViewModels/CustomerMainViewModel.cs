@@ -20,6 +20,12 @@ namespace dhbw_ticket_machine.ViewModels
         private Customer _selectedCustomer;
         public Customer SelectedCustomer { get { return this._selectedCustomer; } set { SetProperty(ref _selectedCustomer, value); } }
 
+        public Event _selectedEvent;
+        public Event SelectedEvent { get { return this._selectedEvent; } set { SetProperty(ref _selectedEvent, value); } }
+
+        private int _selectedAmount;
+        public int SelectedAmount { get { return this._selectedAmount; } set { SetProperty(ref _selectedAmount, value); } }
+
         public CustomerMainViewModel(Customer selectedCustomer)
         {
             this.Events = new ObservableCollection<Event>();

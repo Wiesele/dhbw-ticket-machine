@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Media;
 
 namespace dhbw_ticket_machine.Models
 {
@@ -24,5 +25,7 @@ namespace dhbw_ticket_machine.Models
         public int SoldVolume { get; set; }
         public int DaysBeforSalesStart { get; set; }
         public int TotalTicketAmount { get; set; }
+
+        public int AvailableTickets { get { return TotalTicketAmount - SoldVolume; } }
     }
 }

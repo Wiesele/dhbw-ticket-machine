@@ -47,34 +47,37 @@
 
                 <Label Grid.Row="0" Grid.Column="1" Content="{Binding SelectedCustomer.Name}"></Label>
                 <Label Grid.Row="1" Grid.Column="1" Content="{Binding SelectedCustomer.Budget}"></Label>
+
+                <Label Grid.Row="0" Grid.Column="4" Content="Id:"></Label>
+                <Label Grid.Row="1" Grid.Column="4" Content="Anzahl:"></Label>
+
+                <Label Grid.Row="0" Grid.Column="5" Content="{Binding SelectedEvent.ID }"></Label>
+
+                <Grid Grid.Row="1" Grid.Column="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Slider Grid.Column="0" Minimum="1" Maximum="{Binding SelectedEvent.AvailableTickets}" Value="{Binding SelectedAmount}"></Slider>
+                    <Label Grid.Column="1" Content="{Binding SelectedAmount}"></Label>
+                </Grid>
+                
+
             </Grid>
             <Button Margin="5" Grid.Column="2" Click="Button_Click">Tickets Kaufen</Button>
         </Grid>
-        <ListView Grid.Row="1" ItemsSource="{Binding Path=Events, Mode=TwoWay}">
-            <!--<ListView.ItemTemplate>
-                <DataTemplate DataType="nm:Event">
-                    -->
-            <!--<StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding ID}"></TextBlock>
-                        <TextBlock Text="{Binding Name}"></TextBlock>
-                        <TextBlock Text="{Binding Location}"></TextBlock>
-                        <TextBlock Text="{Binding Date}"></TextBlock>
-                        <TextBlock Text="{Binding Price}"></TextBlock>
-                    </StackPanel>-->
-            <!--
-
-                </DataTemplate>
-            </ListView.ItemTemplate>-->
+        <ListView Grid.Row="1" ItemsSource="{Binding Path=Events, Mode=TwoWay}" SelectedItem="{Binding SelectedEvent}" SelectionChanged="ListView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="240" Header="ID" DisplayMemberBinding="{Binding ID}"/>
                     <GridViewColumn Width="120" Header="Name" DisplayMemberBinding="{Binding Name}"/>
                     <GridViewColumn Width="120" Header="Ort" DisplayMemberBinding="{Binding Location}"/>
                     <GridViewColumn Width="120" Header="Datum" DisplayMemberBinding="{Binding Date, StringFormat={}{0:dd.MM.yyyy}}"/>
-                    <GridViewColumn Width="120" Header="Verkaufsstart" DisplayMemberBinding="{Binding SaleStart, StringFormat={}{0:dd.MM.yyyy}}"/>
+                    <GridViewColumn Width="120" Header="Verkaufsstart" DisplayMemberBinding="{Binding DateSaleStart, StringFormat={}{0:dd.MM.yyyy}}"/>
+                    <GridViewColumn Width="120" Header="Verkaufsende" DisplayMemberBinding="{Binding SaleEnd, StringFormat={}{0:dd.MM.yyyy}}"/>
                     <GridViewColumn Width="60" Header="Preis" DisplayMemberBinding="{Binding Price, Converter={StaticResource pricestringonverter}}"/>
-                    <GridViewColumn Width="120" Header="Ticket Anzahl" DisplayMemberBinding="{Binding TotalTicketAmount}"/>
-                    <GridViewColumn Width="120" Header="Verkaufte Anzahl" DisplayMemberBinding="{Binding SoldVolume}"/>
+                    <GridViewColumn Width="120" Header="Verfügbare Tickets" DisplayMemberBinding="{Binding AvailableTickets}"/>
                 </GridView>
             </ListView.View>
         </ListView>
