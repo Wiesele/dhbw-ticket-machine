@@ -1,4 +1,5 @@
-﻿using dhbw_ticket_machine.ViewModels;
+﻿using dhbw_ticket_machine.Models;
+using dhbw_ticket_machine.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,9 +21,9 @@ namespace dhbw_ticket_machine.Views.CustomerViews
     public partial class CustomerMainPage : Page
     {
         CustomerMainViewModel vm;
-        public CustomerMainPage()
+        public CustomerMainPage(Customer selectedCustomer)
         {
-            this.vm = new CustomerMainViewModel();
+            this.vm = new CustomerMainViewModel(selectedCustomer);
             InitializeComponent();
             DataContext = vm;
 

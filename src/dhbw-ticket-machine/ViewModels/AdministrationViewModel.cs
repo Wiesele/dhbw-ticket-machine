@@ -74,7 +74,7 @@ namespace dhbw_ticket_machine.ViewModels
             this.Events = new ObservableCollection<Event>();
 
             var actor = MainWindow.ActorSystem.ActorOf<AdministrationActor>();
-            var task = actor.Ask(TransactionType.GetAll);
+            var task = actor.Ask(TransactionType.GetAllEvents);
 
             var events = await task as IEnumerable<Event>;
 

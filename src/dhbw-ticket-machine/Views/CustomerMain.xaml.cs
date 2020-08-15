@@ -25,7 +25,7 @@ namespace dhbw_ticket_machine.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            mainFrame.NavigationService.Navigate(new CustomerMainPage());
+            mainFrame.NavigationService.Navigate(new SelectCustomer());
         }
     }
 }

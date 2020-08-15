@@ -29,7 +29,7 @@ namespace dhbw_ticket_machine.Actors
             this.database = MockDatabase.Create();
             Receive<TransactionType>(e =>
             {
-                if(e == TransactionType.GetAll)
+                if(e == TransactionType.GetAllEvents)
                 {
                     var returnValue = database.Events;
                     foreach (var item in returnValue)
@@ -44,7 +44,14 @@ namespace dhbw_ticket_machine.Actors
                             holder.SoldVolume += ticket.Amount;
                         }
                     }
-                    Sender.Tell(this.database.Events);
+                    Sender.Tell(returnValue);
+                }
+
+                if(e == TransactionType.GetAllCustomer)
+                {
+                    var returnValue = database.Customers;
+
+                    Sender.Tell(returnValue);
                 }
             });
             Receive<Event>(e =>

@@ -17,11 +17,14 @@ namespace dhbw_ticket_machine.ViewModels
         private ObservableCollection<Event> _events;
         public ObservableCollection<Event> Events { get { return this._events; } set { SetProperty(ref _events, value); } }
 
-        public CustomerMainViewModel()
+        private Customer _selectedCustomer;
+        public Customer SelectedCustomer { get { return this._selectedCustomer; } set { SetProperty(ref _selectedCustomer, value); } }
+
+        public CustomerMainViewModel(Customer selectedCustomer)
         {
             this.Events = new ObservableCollection<Event>();
             this.ResetTextFields();
-
+            this.SelectedCustomer = selectedCustomer;
             AdministrationActor.EventDataChange += EventDataChange;
         }
 
@@ -36,7 +39,7 @@ namespace dhbw_ticket_machine.ViewModels
             this.Events = new ObservableCollection<Event>();
 
             var actor = MainWindow.ActorSystem.ActorOf<AdministrationActor>();
-            var task = actor.Ask(TransactionType.GetAll);
+            var task = actor.Ask(TransactionType.GetAllEvents);
 
             var events = await task as IEnumerable<Event>;
 

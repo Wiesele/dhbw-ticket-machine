@@ -6,7 +6,7 @@ namespace dhbw_ticket_machine.actors.TransactionTypes
 {
     public enum TransactionType
     {
-        Get,
-        GetAll
+        GetAllCustomer,
+        GetAllEvents
     }
 }
