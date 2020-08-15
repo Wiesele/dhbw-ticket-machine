@@ -23,8 +23,6 @@ namespace dhbw_ticket_machine.ViewModels
         private ObservableCollection<Event> _events;
         public ObservableCollection<Event> Events { get { return this._events; } set { SetProperty(ref _events, value); } }
 
-        private ActorSystem ActorSystem {get; set; }
-
         private string _newName;
         public string NewName { get { return this._newName; } set { SetProperty(ref _newName, value); } }
 
@@ -41,6 +39,8 @@ namespace dhbw_ticket_machine.ViewModels
         public int DaysBefore { get { return this._daysBefore; } set { SetProperty(ref _daysBefore, value); } }
         private int _ticketAmount;
         public int TicketAmount { get { return this._ticketAmount; } set { SetProperty(ref _ticketAmount, value); } }
+        private DateTime _newSellDate;
+        public DateTime NewSellDate { get { return this._newSellDate; } set { SetProperty(ref _newSellDate, value); } }
 
 
         private ObservableCollection<string> _suggestions;
@@ -48,10 +48,16 @@ namespace dhbw_ticket_machine.ViewModels
 
         public AdministrationViewModel()
         {
-            this.ActorSystem = ActorSystem.Create("Admin");
             this.Events = new ObservableCollection<Event>();
             this.Suggestions = new ObservableCollection<string>();
             this.ResetTextFields();
+
+            AdministrationActor.EventDataChange += EventDataChange;
+        }
+
+        private void EventDataChange(object sender, IEnumerable<Event> events)
+        {
+            this.LoadData();
         }
 
         public void LoadSuggestions(string start)
@@ -67,7 +73,7 @@ namespace dhbw_ticket_machine.ViewModels
         {
             this.Events = new ObservableCollection<Event>();
 
-            var actor = this.ActorSystem.ActorOf<AdministrationActor>();
+            var actor = MainWindow.ActorSystem.ActorOf<AdministrationActor>();
             var task = actor.Ask(TransactionType.GetAll);
 
             var events = await task as IEnumerable<Event>;
@@ -80,6 +86,7 @@ namespace dhbw_ticket_machine.ViewModels
         {
             this.NewPrice = 0;
             this.NewDate = DateTime.Now;
+            this.NewSellDate = DateTime.Now;
             this.NewLocation = "";
             this.NewName = "";
             this.TicketAmount = 0;
@@ -96,6 +103,7 @@ namespace dhbw_ticket_machine.ViewModels
                 Price = this.NewPrice,
                 DaysBeforSalesStart = this.DaysBefore,
                 TotalTicketAmount = this.TicketAmount,
+                DateSaleStart = NewSellDate,
                 ID = Guid.NewGuid()
             };
 
@@ -106,14 +114,9 @@ namespace dhbw_ticket_machine.ViewModels
             }
 
 
-            var actor = this.ActorSystem.ActorOf<AdministrationActor>();
+            var actor = MainWindow.ActorSystem.ActorOf<AdministrationActor>();
             // Wait for Item to be inserted
-            var task = actor.Ask(newEvent);
-            await task;
-
-            // Reload List
-            this.LoadData();
-
+            actor.Tell(newEvent);
             this.ResetTextFields();
         }
     }

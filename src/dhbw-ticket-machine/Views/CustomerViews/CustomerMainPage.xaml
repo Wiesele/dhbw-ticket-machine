@@ -1,15 +1,15 @@
-﻿<Page x:Class="dhbw_ticket_machine.Views.Administration"
+﻿<Page x:Class="dhbw_ticket_machine.Views.CustomerViews.CustomerMainPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:dhbw_ticket_machine.Views"
+      xmlns:local="clr-namespace:dhbw_ticket_machine.Views.CustomerViews"
       xmlns:nm="clr-namespace:dhbw_ticket_machine.Models"
       xmlns:con="clr-namespace:dhbw_ticket_machine.Converter"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Administration"
-      Loaded="Page_Loaded">
+      Title="CustomerMainPage" Loaded="Page_Loaded">
+
     <Page.Resources>
         <con:DateConverter x:Key="dateconverter" />
         <con:PriceConverter x:Key="priceonverter" />
@@ -41,38 +41,22 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="90px"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="90px"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-
-                <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right">Name</Label>
-                <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right">Ort</Label>
-                <Label Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right">Datum</Label>
-                <Label Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right">Preis</Label>
-                <Label Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right">Verkaufsstart</Label>
-                <Label Grid.Row="1" Grid.Column="4" HorizontalAlignment="Right">Verkaufstage</Label>
-                <Label Grid.Row="0" Grid.Column="6" HorizontalAlignment="Right">Ticketanzahl</Label>
-
-                <TextBox Grid.Row="0" Grid.Column="1" Margin="2" Text="{Binding NewName, Mode=TwoWay}"></TextBox>
-                <ComboBox ItemsSource="{Binding Suggestions, Mode=OneWay}" KeyDown="ComboBox_KeyDown" StaysOpenOnEdit="False" DropDownOpened="ComboBox_DropDownOpened" IsEditable="True" Grid.Row="1" Grid.Column="1" Margin="2" Text="{Binding NewLocation, Mode=TwoWay}"></ComboBox>
-                <DatePicker Grid.Row="0" Grid.Column="3" Margin="2" Text="{Binding NewDate, Mode=TwoWay, Converter={StaticResource dateconverter}, StringFormat={}{0:dd.MM.yyyy}}"></DatePicker>
-                <TextBox Grid.Row="1" Grid.Column="3" Margin="2" Text="{Binding NewPrice, Mode=TwoWay, Converter={StaticResource priceonverter}}"></TextBox>
-                <DatePicker Grid.Row="0" Grid.Column="5" Margin="2" Text="{Binding NewSellDate, Mode=TwoWay, Converter={StaticResource dateconverter}, StringFormat={}{0:dd.MM.yyyy}}"></DatePicker>
-                <TextBox Grid.Row="1" Grid.Column="5" Margin="2" Text="{Binding DaysBefore, Mode=TwoWay, Converter={StaticResource intconverter} }"></TextBox>
-                <TextBox Grid.Row="0" Grid.Column="7" Margin="2" Text="{Binding TicketAmount, Mode=TwoWay, Converter={StaticResource intconverter} }"></TextBox>
             </Grid>
-            <Button Margin="5" Grid.Column="2" Click="Button_Click">Event Hinzufügen</Button>
+            <Button Margin="5" Grid.Column="2" Click="Button_Click">Tickets Kaufen</Button>
         </Grid>
         <ListView Grid.Row="1" ItemsSource="{Binding Path=Events, Mode=TwoWay}">
             <!--<ListView.ItemTemplate>
                 <DataTemplate DataType="nm:Event">
-                    --><!--<StackPanel Orientation="Horizontal">
+                    -->
+            <!--<StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding ID}"></TextBlock>
                         <TextBlock Text="{Binding Name}"></TextBlock>
                         <TextBlock Text="{Binding Location}"></TextBlock>
                         <TextBlock Text="{Binding Date}"></TextBlock>
                         <TextBlock Text="{Binding Price}"></TextBlock>
-                    </StackPanel>--><!--
+                    </StackPanel>-->
+            <!--
 
                 </DataTemplate>
             </ListView.ItemTemplate>-->
@@ -82,8 +66,7 @@
                     <GridViewColumn Width="120" Header="Name" DisplayMemberBinding="{Binding Name}"/>
                     <GridViewColumn Width="120" Header="Ort" DisplayMemberBinding="{Binding Location}"/>
                     <GridViewColumn Width="120" Header="Datum" DisplayMemberBinding="{Binding Date, StringFormat={}{0:dd.MM.yyyy}}"/>
-                    <GridViewColumn Width="120" Header="Verkaufsstart" DisplayMemberBinding="{Binding DateSaleStart, StringFormat={}{0:dd.MM.yyyy}}"/>
-                    <GridViewColumn Width="120" Header="Verkaufsende" DisplayMemberBinding="{Binding SaleEnd, StringFormat={}{0:dd.MM.yyyy}}"/>
+                    <GridViewColumn Width="120" Header="Verkaufsstart" DisplayMemberBinding="{Binding SaleStart, StringFormat={}{0:dd.MM.yyyy}}"/>
                     <GridViewColumn Width="60" Header="Preis" DisplayMemberBinding="{Binding Price, Converter={StaticResource pricestringonverter}}"/>
                     <GridViewColumn Width="120" Header="Ticket Anzahl" DisplayMemberBinding="{Binding TotalTicketAmount}"/>
                     <GridViewColumn Width="120" Header="Verkaufte Anzahl" DisplayMemberBinding="{Binding SoldVolume}"/>

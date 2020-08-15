@@ -15,5 +15,6 @@ namespace dhbw_ticket_machine.Models
         public string Adress { get; set; }
         public List<Ticket> Tickets { get; set; }
         public double Budget { get; set; }
+        public double AnualBudget { get; set; }
     }
 }

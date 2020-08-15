@@ -1,4 +1,5 @@
-﻿using dhbw_ticket_machine.Views;
+﻿using Akka.Actor;
+using dhbw_ticket_machine.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,8 +22,11 @@ namespace dhbw_ticket_machine
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static ActorSystem ActorSystem { get; set; }
+
         public MainWindow()
         {
+            MainWindow.ActorSystem =  ActorSystem.Create("Ticket-Machine");
             InitializeComponent();
             DataContext = this;
         }

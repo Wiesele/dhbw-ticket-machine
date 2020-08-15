@@ -22,7 +22,7 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="1" Margin="5">Kunde</Button>
+            <Button Grid.Column="1" Margin="5" Click="Button_Customer_Click">Kunde</Button>
             <Button Grid.Column="2" Margin="5" Click="Button_Click">Administration</Button>
         </Grid>
     </Grid>

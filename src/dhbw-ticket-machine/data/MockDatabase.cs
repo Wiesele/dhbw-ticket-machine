@@ -34,6 +34,7 @@ namespace dhbw_ticket_machine.Data
                     Price = 2.5f,
                     DaysBeforSalesStart = 5,
                     TotalTicketAmount = 150,
+                    DateSaleStart = DateTime.Now - new TimeSpan(5,0,0,0),
                 },
                 new Event()
                 {
@@ -44,6 +45,7 @@ namespace dhbw_ticket_machine.Data
                     Price = 2.5f,
                     DaysBeforSalesStart = 5,
                     TotalTicketAmount = 150,
+                    DateSaleStart = DateTime.Now - new TimeSpan(5,0,0,0),
                 },
                 new Event()
                 {
@@ -54,6 +56,7 @@ namespace dhbw_ticket_machine.Data
                     Price = 2.5f,
                     DaysBeforSalesStart = 5,
                     TotalTicketAmount = 150,
+                    DateSaleStart = DateTime.Now - new TimeSpan(5,0,0,0),
                 },
                 new Event()
                 {
@@ -64,7 +67,7 @@ namespace dhbw_ticket_machine.Data
                     Price = 2.5f,
                     DaysBeforSalesStart = 5,
                     TotalTicketAmount = 150,
-
+                    DateSaleStart = DateTime.Now - new TimeSpan(5,0,0,0),
                 },
                 new Event()
                 {
@@ -75,6 +78,7 @@ namespace dhbw_ticket_machine.Data
                     Price = 2.5f,
                     DaysBeforSalesStart = 5,
                     TotalTicketAmount = 150,
+                    DateSaleStart = DateTime.Now - new TimeSpan(5,0,0,0),
                 },
             };
 

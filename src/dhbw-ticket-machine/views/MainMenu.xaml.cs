@@ -27,5 +27,10 @@ namespace dhbw_ticket_machine.Views
         {
             NavigationService.Navigate(new Administration());
         }
+        private void Button_Customer_Click(object sender, RoutedEventArgs e)
+        {
+            var page = new CustomerMain();
+            page.Show();
+        }
     }
 }

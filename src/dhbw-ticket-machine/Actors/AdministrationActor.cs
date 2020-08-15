@@ -12,6 +12,18 @@ namespace dhbw_ticket_machine.Actors
     public class AdministrationActor: ReceiveActor
     {
         IDatabase database;
+
+        public delegate void EventDataChangeHandler(object source, IEnumerable<Event> Events);
+        public static event EventDataChangeHandler EventDataChange;
+
+        private void RaiseEventDataChange(IEnumerable<Event> NewData)
+        {
+            if(AdministrationActor.EventDataChange != null)
+            {
+                AdministrationActor.EventDataChange.Invoke(this, NewData);
+            }
+        }
+
         public AdministrationActor()
         {
             this.database = MockDatabase.Create();
@@ -42,11 +54,7 @@ namespace dhbw_ticket_machine.Actors
                     e.SoldVolume = 0;
                     e.ID = Guid.NewGuid();
                     this.database.Events.Add(e);
-                    Sender.Tell(true);
-                }
-                else
-                {
-                    Sender.Tell(false);
+                    this.RaiseEventDataChange(this.database.Events);
                 }
             });
         }
