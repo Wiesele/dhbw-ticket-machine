@@ -42,6 +42,11 @@
                     <ColumnDefinition Width="90px"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="Name:"></Label>
+                <Label Grid.Row="1" Grid.Column="0" Content="Budget:"></Label>
+
+                <Label Grid.Row="0" Grid.Column="1" Content="{Binding SelectedCustomer.Name}"></Label>
+                <Label Grid.Row="1" Grid.Column="1" Content="{Binding SelectedCustomer.Budget}"></Label>
             </Grid>
             <Button Margin="5" Grid.Column="2" Click="Button_Click">Tickets Kaufen</Button>
         </Grid>

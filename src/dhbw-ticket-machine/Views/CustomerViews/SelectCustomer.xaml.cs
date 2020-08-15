@@ -28,7 +28,10 @@ namespace dhbw_ticket_machine.Views.CustomerViews
 
         private void ListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new CustomerMainPage(vm.SelectedCustomer));
+            if(vm.SelectedCustomer != null)
+            {
+                NavigationService.Navigate(new CustomerMainPage(vm.SelectedCustomer));
+            }
         }
     }
 }

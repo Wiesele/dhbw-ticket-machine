@@ -12,7 +12,7 @@
         <ListView Grid.Row="1" ItemsSource="{Binding Path=Customer, Mode=TwoWay}" SelectedItem="{Binding SelectedCustomer}" MouseDoubleClick="ListView_MouseDoubleClick">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="120" Header="ID" DisplayMemberBinding="{Binding ID}"/>
+                    <GridViewColumn Width="240" Header="ID" DisplayMemberBinding="{Binding ID}"/>
                     <GridViewColumn Width="120" Header="Name" DisplayMemberBinding="{Binding Name}"/>
                 </GridView>
             </ListView.View>

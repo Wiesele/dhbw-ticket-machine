@@ -87,8 +87,10 @@ namespace dhbw_ticket_machine.Data
                 new Customer()
                 {
                     ID = Guid.NewGuid(),
-                    Adress = "TestAdresse",
+                    Adress = "Tennenbronn",
                     Name = "Felix Heß",
+                    Budget = 1100,
+                    AnualBudget = 1100,
                     Tickets = new List<Ticket>()
                     {
                         new Ticket()
@@ -99,6 +101,38 @@ namespace dhbw_ticket_machine.Data
                             ID = Guid.NewGuid()
                         }
                     }
+                },
+                new Customer()
+                {
+                    ID = Guid.NewGuid(),
+                    Adress = "Bollenbach",
+                    Name = "Marvin Rothmann",
+                    AnualBudget = 1000,
+                    Budget = 1000,
+                },
+                new Customer()
+                {
+                    ID = Guid.NewGuid(),
+                    Adress = "Halbmeil",
+                    Name = "Axel Schmidke",
+                    AnualBudget = 850,
+                    Budget = 850,
+                },
+                new Customer()
+                {
+                    ID = Guid.NewGuid(),
+                    Adress = "Schonach",
+                    Name = "Julian Dold",
+                    AnualBudget = 900,
+                    Budget = 900,
+                },
+                new Customer()
+                {
+                    ID = Guid.NewGuid(),
+                    Adress = "Freudenstadt",
+                    Name = "Adrian Stengle",
+                    AnualBudget = 750,
+                    Budget = 750,
                 }
             };
 
