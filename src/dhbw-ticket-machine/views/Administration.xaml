@@ -14,6 +14,7 @@
         <con:DateConverter x:Key="dateconverter" />
         <con:PriceConverter x:Key="priceonverter" />
         <con:PriceStringConverter x:Key="pricestringonverter" />
+        <con:IntConverter x:Key="intconverter" />
     </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -38,18 +39,23 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="60px"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="90px"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
                 <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right">Name</Label>
                 <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right">Ort</Label>
                 <Label Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right">Datum</Label>
                 <Label Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right">Preis</Label>
+                <Label Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right">Verkaufstage</Label>
+                <Label Grid.Row="1" Grid.Column="4" HorizontalAlignment="Right">Ticketanzahl</Label>
 
                 <TextBox Grid.Row="0" Grid.Column="1" Margin="2" Text="{Binding NewName, Mode=TwoWay}"></TextBox>
                 <ComboBox ItemsSource="{Binding Suggestions, Mode=OneWay}" KeyDown="ComboBox_KeyDown" StaysOpenOnEdit="False" DropDownOpened="ComboBox_DropDownOpened" IsEditable="True" Grid.Row="1" Grid.Column="1" Margin="2" Text="{Binding NewLocation, Mode=TwoWay}"></ComboBox>
                 <DatePicker Grid.Row="0" Grid.Column="3" Margin="2" Text="{Binding NewDate, Mode=TwoWay, Converter={StaticResource dateconverter}, StringFormat={}{0:dd.MM.yyyy}}"></DatePicker>
                 <TextBox Grid.Row="1" Grid.Column="3" Margin="2" Text="{Binding NewPrice, Mode=TwoWay, Converter={StaticResource priceonverter}}"></TextBox>
-
+                <TextBox Grid.Row="0" Grid.Column="5" Margin="2" Text="{Binding DaysBefore, Mode=TwoWay, Converter={StaticResource intconverter} }"></TextBox>
+                <TextBox Grid.Row="1" Grid.Column="5" Margin="2" Text="{Binding TicketAmount, Mode=TwoWay, Converter={StaticResource intconverter} }"></TextBox>
             </Grid>
             <Button Margin="5" Grid.Column="2" Click="Button_Click">Event Hinzufügen</Button>
         </Grid>
@@ -72,7 +78,9 @@
                     <GridViewColumn Width="120" Header="Name" DisplayMemberBinding="{Binding Name}"/>
                     <GridViewColumn Width="120" Header="Ort" DisplayMemberBinding="{Binding Location}"/>
                     <GridViewColumn Width="120" Header="Datum" DisplayMemberBinding="{Binding Date, StringFormat={}{0:dd.MM.yyyy}}"/>
+                    <GridViewColumn Width="120" Header="Verkaufsstart" DisplayMemberBinding="{Binding SaleStart, StringFormat={}{0:dd.MM.yyyy}}"/>
                     <GridViewColumn Width="60" Header="Preis" DisplayMemberBinding="{Binding Price, Converter={StaticResource pricestringonverter}}"/>
+                    <GridViewColumn Width="120" Header="Ticket Anzahl" DisplayMemberBinding="{Binding TotalTicketAmount}"/>
                     <GridViewColumn Width="120" Header="Verkaufte Anzahl" DisplayMemberBinding="{Binding SoldVolume}"/>
                 </GridView>
             </ListView.View>

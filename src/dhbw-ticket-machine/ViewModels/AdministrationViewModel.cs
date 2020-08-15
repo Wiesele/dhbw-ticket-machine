@@ -37,6 +37,11 @@ namespace dhbw_ticket_machine.ViewModels
         private float _newPrice;
         public float NewPrice { get { return this._newPrice; } set { SetProperty(ref _newPrice, value); } }
 
+        private int _daysBefore;
+        public int DaysBefore { get { return this._daysBefore; } set { SetProperty(ref _daysBefore, value); } }
+        private int _ticketAmount;
+        public int TicketAmount { get { return this._ticketAmount; } set { SetProperty(ref _ticketAmount, value); } }
+
 
         private ObservableCollection<string> _suggestions;
         public ObservableCollection<string> Suggestions { get { return this._suggestions; } set { SetProperty(ref _suggestions, value); } }
@@ -77,6 +82,8 @@ namespace dhbw_ticket_machine.ViewModels
             this.NewDate = DateTime.Now;
             this.NewLocation = "";
             this.NewName = "";
+            this.TicketAmount = 0;
+            this.DaysBefore = 0;
         }
 
         public async Task SaveNewEvent()
@@ -87,6 +94,8 @@ namespace dhbw_ticket_machine.ViewModels
                 Location = this.NewLocation,
                 Name = this.NewName,
                 Price = this.NewPrice,
+                DaysBeforSalesStart = this.DaysBefore,
+                TotalTicketAmount = this.TicketAmount,
                 ID = Guid.NewGuid()
             };
 

@@ -31,7 +31,9 @@ namespace dhbw_ticket_machine.Data
                     ID = Guid.NewGuid(),
                     Location = "Haslach im Kinzigtal",
                     Name = "Hallo Welt ",
-                    Price = 2.5f
+                    Price = 2.5f,
+                    DaysBeforSalesStart = 5,
+                    TotalTicketAmount = 150,
                 },
                 new Event()
                 {
@@ -39,15 +41,19 @@ namespace dhbw_ticket_machine.Data
                     ID = Guid.NewGuid(),
                     Location = "Gengenbach",
                     Name = "Hallo Welt ",
-                    Price = 2.5f
+                    Price = 2.5f,
+                    DaysBeforSalesStart = 5,
+                    TotalTicketAmount = 150,
                 },
                 new Event()
                 {
                     Date = DateTime.Now,
                     ID = Guid.NewGuid(),
-                    Location = "Stuttgard",
+                    Location = "Stuttgart",
                     Name = "Hallo Welt ",
-                    Price = 2.5f
+                    Price = 2.5f,
+                    DaysBeforSalesStart = 5,
+                    TotalTicketAmount = 150,
                 },
                 new Event()
                 {
@@ -55,7 +61,10 @@ namespace dhbw_ticket_machine.Data
                     ID = Guid.NewGuid(),
                     Location = "Offenburg",
                     Name = "Hallo Welt ",
-                    Price = 2.5f
+                    Price = 2.5f,
+                    DaysBeforSalesStart = 5,
+                    TotalTicketAmount = 150,
+
                 },
                 new Event()
                 {
@@ -63,7 +72,9 @@ namespace dhbw_ticket_machine.Data
                     ID = testEventGuid,
                     Location = "Villingen Schwenningen",
                     Name = "Hallo Welt ",
-                    Price = 2.5f
+                    Price = 2.5f,
+                    DaysBeforSalesStart = 5,
+                    TotalTicketAmount = 150,
                 },
             };
 
