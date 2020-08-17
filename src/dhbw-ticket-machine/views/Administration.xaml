@@ -82,7 +82,7 @@
                     <GridViewColumn Width="120" Header="Name" DisplayMemberBinding="{Binding Name}"/>
                     <GridViewColumn Width="120" Header="Ort" DisplayMemberBinding="{Binding Location}"/>
                     <GridViewColumn Width="120" Header="Datum" DisplayMemberBinding="{Binding Date, StringFormat={}{0:dd.MM.yyyy}}"/>
-                    <GridViewColumn Width="120" Header="Verkaufsstart" DisplayMemberBinding="{Binding DateSaleStart, StringFormat={}{0:dd.MM.yyyy}}"/>
+                    <GridViewColumn Width="120" Header="Verkaufsstart" DisplayMemberBinding="{Binding SaleStart, StringFormat={}{0:dd.MM.yyyy}}"/>
                     <GridViewColumn Width="120" Header="Verkaufsende" DisplayMemberBinding="{Binding SaleEnd, StringFormat={}{0:dd.MM.yyyy}}"/>
                     <GridViewColumn Width="60" Header="Preis" DisplayMemberBinding="{Binding Price, Converter={StaticResource pricestringonverter}}"/>
                     <GridViewColumn Width="120" Header="Ticket Anzahl" DisplayMemberBinding="{Binding TotalTicketAmount}"/>

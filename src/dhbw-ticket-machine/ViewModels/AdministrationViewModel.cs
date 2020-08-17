@@ -103,7 +103,7 @@ namespace dhbw_ticket_machine.ViewModels
                 Price = this.NewPrice,
                 DaysBeforSalesStart = this.DaysBefore,
                 TotalTicketAmount = this.TicketAmount,
-                DateSaleStart = NewSellDate,
+                SaleStart = NewSellDate,
                 ID = Guid.NewGuid()
             };
 

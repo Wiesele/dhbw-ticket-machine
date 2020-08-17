@@ -34,7 +34,7 @@ namespace dhbw_ticket_machine.Data
                     Price = 2.5f,
                     DaysBeforSalesStart = 5,
                     TotalTicketAmount = 150,
-                    DateSaleStart = DateTime.Now - new TimeSpan(5,0,0,0),
+                    SaleStart = DateTime.Now - new TimeSpan(5,0,0,0),
                 },
                 new Event()
                 {
@@ -45,7 +45,7 @@ namespace dhbw_ticket_machine.Data
                     Price = 2.5f,
                     DaysBeforSalesStart = 5,
                     TotalTicketAmount = 150,
-                    DateSaleStart = DateTime.Now - new TimeSpan(5,0,0,0),
+                    SaleStart = DateTime.Now - new TimeSpan(5,0,0,0),
                 },
                 new Event()
                 {
@@ -56,7 +56,7 @@ namespace dhbw_ticket_machine.Data
                     Price = 2.5f,
                     DaysBeforSalesStart = 5,
                     TotalTicketAmount = 150,
-                    DateSaleStart = DateTime.Now - new TimeSpan(5,0,0,0),
+                    SaleStart = DateTime.Now - new TimeSpan(5,0,0,0),
                 },
                 new Event()
                 {
@@ -67,7 +67,7 @@ namespace dhbw_ticket_machine.Data
                     Price = 2.5f,
                     DaysBeforSalesStart = 5,
                     TotalTicketAmount = 150,
-                    DateSaleStart = DateTime.Now - new TimeSpan(5,0,0,0),
+                    SaleStart = DateTime.Now - new TimeSpan(5,0,0,0),
                 },
                 new Event()
                 {
@@ -78,7 +78,7 @@ namespace dhbw_ticket_machine.Data
                     Price = 2.5f,
                     DaysBeforSalesStart = 5,
                     TotalTicketAmount = 150,
-                    DateSaleStart = DateTime.Now - new TimeSpan(5,0,0,0),
+                    SaleStart = DateTime.Now - new TimeSpan(5,0,0,0),
                 },
             };
 
@@ -91,16 +91,6 @@ namespace dhbw_ticket_machine.Data
                     Name = "Felix Heß",
                     Budget = 1100,
                     AnualBudget = 1100,
-                    Tickets = new List<Ticket>()
-                    {
-                        new Ticket()
-                        {
-                            Amount = 5,
-                            EventId = testEventGuid,
-                            BoughtDate = DateTime.Now,
-                            ID = Guid.NewGuid()
-                        }
-                    }
                 },
                 new Customer()
                 {

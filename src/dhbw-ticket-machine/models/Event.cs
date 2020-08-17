@@ -9,13 +9,13 @@ namespace dhbw_ticket_machine.Models
     {
         public string Name { get; set; }
         public DateTime Date { get; set; }
-        public DateTime DateSaleStart { get; set; }
+        public DateTime SaleStart { get; set; }
         public DateTime SaleEnd { get
             {
                 if(this.Date != null)
                 {
                     var Timespan = new TimeSpan(this.DaysBeforSalesStart,0,0,0);
-                    return DateSaleStart + Timespan;
+                    return SaleStart + Timespan;
                 }
                 return DateTime.Now;
             }

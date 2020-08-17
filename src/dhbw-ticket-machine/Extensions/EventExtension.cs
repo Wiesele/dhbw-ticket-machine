@@ -16,5 +16,13 @@ namespace dhbw_ticket_machine.Extensions
             }
             return false;
         }
+
+        public static bool IsCurrentlySelling(this Event ev)
+        {
+            var now = DateTime.Now.Date;
+
+            var value =  ev.SaleStart.Date <= now && ev.SaleEnd.Date >= now;
+            return value;
+        }
     }
 }

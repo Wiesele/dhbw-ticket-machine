@@ -46,26 +46,37 @@
                 <Label Grid.Row="1" Grid.Column="0" Content="Budget:"></Label>
 
                 <Label Grid.Row="0" Grid.Column="1" Content="{Binding SelectedCustomer.Name}"></Label>
-                <Label Grid.Row="1" Grid.Column="1" Content="{Binding SelectedCustomer.Budget}"></Label>
+                <Label Grid.Row="1" Grid.Column="1" Content="{Binding SelectedCustomer.Budget}" Name="BudgetLabel"></Label>
 
-                <Label Grid.Row="0" Grid.Column="4" Content="Id:"></Label>
-                <Label Grid.Row="1" Grid.Column="4" Content="Anzahl:"></Label>
+                <Label Grid.Row="0" Grid.Column="2" Content="Id:"></Label>
+                <Label Grid.Row="0" Grid.Column="3" Content="{Binding SelectedEvent.ID }"></Label>
 
-                <Label Grid.Row="0" Grid.Column="5" Content="{Binding SelectedEvent.ID }"></Label>
+                <Label Grid.Row="0" Grid.Column="4" Content="Name:"></Label>
+                <Label Grid.Row="0" Grid.Column="5" Content="{Binding SelectedEvent.Name }"></Label>
 
-                <Grid Grid.Row="1" Grid.Column="5">
+                <Label Grid.Row="1" Grid.Column="2" Content="Anzahl:"></Label>
+
+
+                <Grid Grid.Row="1" Grid.Column="3"  Grid.ColumnSpan="3">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="4*"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="50px"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
 
-                    <Slider Grid.Column="0" Minimum="1" Maximum="{Binding SelectedEvent.AvailableTickets}" Value="{Binding SelectedAmount}"></Slider>
+                    <Slider Grid.Column="0" Minimum="1" ValueChanged="Slider_ValueChanged" Name="AmountSlider" Value="{Binding SelectedAmount}"></Slider>
                     <Label Grid.Column="1" Content="{Binding SelectedAmount}"></Label>
                 </Grid>
                 
 
             </Grid>
-            <Button Margin="5" Grid.Column="2" Click="Button_Click">Tickets Kaufen</Button>
+            <Grid Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Margin="5" Grid.Column="0" IsEnabled="{Binding ButtonActive}" Click="Button_Click">Tickets Kaufen</Button>
+                <Button Margin="5" Grid.Column="1" Click="Button_Click_1">Tickets Anzeigen</Button>
+            </Grid>
         </Grid>
         <ListView Grid.Row="1" ItemsSource="{Binding Path=Events, Mode=TwoWay}" SelectedItem="{Binding SelectedEvent}" SelectionChanged="ListView_SelectionChanged">
             <ListView.View>
@@ -74,7 +85,7 @@
                     <GridViewColumn Width="120" Header="Name" DisplayMemberBinding="{Binding Name}"/>
                     <GridViewColumn Width="120" Header="Ort" DisplayMemberBinding="{Binding Location}"/>
                     <GridViewColumn Width="120" Header="Datum" DisplayMemberBinding="{Binding Date, StringFormat={}{0:dd.MM.yyyy}}"/>
-                    <GridViewColumn Width="120" Header="Verkaufsstart" DisplayMemberBinding="{Binding DateSaleStart, StringFormat={}{0:dd.MM.yyyy}}"/>
+                    <GridViewColumn Width="120" Header="Verkaufsstart" DisplayMemberBinding="{Binding SaleStart, StringFormat={}{0:dd.MM.yyyy}}"/>
                     <GridViewColumn Width="120" Header="Verkaufsende" DisplayMemberBinding="{Binding SaleEnd, StringFormat={}{0:dd.MM.yyyy}}"/>
                     <GridViewColumn Width="60" Header="Preis" DisplayMemberBinding="{Binding Price, Converter={StaticResource pricestringonverter}}"/>
                     <GridViewColumn Width="120" Header="Verfügbare Tickets" DisplayMemberBinding="{Binding AvailableTickets}"/>

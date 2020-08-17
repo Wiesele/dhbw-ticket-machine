@@ -1,0 +1,65 @@
+﻿<Page x:Class="dhbw_ticket_machine.Views.CustomerViews.ShowTickets"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:dhbw_ticket_machine.Views.CustomerViews"
+      xmlns:nm="clr-namespace:dhbw_ticket_machine.Models"
+      xmlns:con="clr-namespace:dhbw_ticket_machine.Converter"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ShowTickets">
+    <Page.Resources>
+        <con:DateConverter x:Key="dateconverter" />
+        <con:PriceConverter x:Key="priceonverter" />
+        <con:PriceStringConverter x:Key="pricestringonverter" />
+        <con:IntConverter x:Key="intconverter" />
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60px"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60px"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="60px"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="90px"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="Name:"></Label>
+                <Label Grid.Row="1" Grid.Column="0" Content="Budget:"></Label>
+
+                <Label Grid.Row="0" Grid.Column="1" Content="{Binding SelectedCustomer.Name}"></Label>
+                <Label Grid.Row="1" Grid.Column="1" Content="{Binding SelectedCustomer.Budget}" Name="BudgetLabel"></Label>
+
+            </Grid>
+        </Grid>
+        <ListView Grid.Row="1" ItemsSource="{Binding Path=Tickets, Mode=TwoWay}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="240" Header="ID" DisplayMemberBinding="{Binding Event.ID}"/>
+                    <GridViewColumn Width="120" Header="Name" DisplayMemberBinding="{Binding Event.Name}"/>
+                    <GridViewColumn Width="120" Header="Ort" DisplayMemberBinding="{Binding Event.Location}"/>
+                    <GridViewColumn Width="120" Header="Datum" DisplayMemberBinding="{Binding Event.Date, StringFormat={}{0:dd.MM.yyyy}}"/>
+                    <GridViewColumn Width="120" Header="Gekaufte Anzahl" DisplayMemberBinding="{Binding Amount}"/>
+                    <GridViewColumn Width="120" Header="Kaufdatum / Zeit" DisplayMemberBinding="{Binding BoughtDate, StringFormat={}{0:dd.MM.yyyy HH:mm:ss}}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Page>
