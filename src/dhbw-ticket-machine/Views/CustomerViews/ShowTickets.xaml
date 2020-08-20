@@ -47,6 +47,12 @@
                 <Label Grid.Row="0" Grid.Column="1" Content="{Binding SelectedCustomer.Name}"></Label>
                 <Label Grid.Row="1" Grid.Column="1" Content="{Binding SelectedCustomer.Budget}" Name="BudgetLabel"></Label>
 
+
+                <Label Grid.Row="0" Grid.Column="2" Content="Datum:"></Label>
+                <Label Grid.Row="1" Grid.Column="2" Content="Kaufdatum:"></Label>
+                
+                <DatePicker Grid.Row="0" Grid.Column="3" Margin="2" Text="{Binding FilterDate, Mode=TwoWay, Converter={StaticResource dateconverter}, StringFormat={}{0:dd.MM.yyyy}}"></DatePicker>
+                <DatePicker Grid.Row="1" Grid.Column="3" Margin="2" Text="{Binding FilterSellDate, Mode=TwoWay, Converter={StaticResource dateconverter}, StringFormat={}{0:dd.MM.yyyy}}"></DatePicker>
             </Grid>
         </Grid>
         <ListView Grid.Row="1" ItemsSource="{Binding Path=Tickets, Mode=TwoWay}">

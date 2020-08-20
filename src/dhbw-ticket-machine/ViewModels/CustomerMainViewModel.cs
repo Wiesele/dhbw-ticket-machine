@@ -37,6 +37,14 @@ namespace dhbw_ticket_machine.ViewModels
         private ObservableCollection<Ticket> _tickets;
         public ObservableCollection<Ticket> Tickets { get { return this._tickets; } set { SetProperty(ref _tickets, value); } }
 
+
+        private DateTime _filterDate;
+        public DateTime FilterDate { get { return this._filterDate; } set { SetProperty(ref _filterDate, value); } }
+
+
+        private DateTime _filterSellDate;
+        public DateTime FilterSellDate { get { return this._filterDate; } set { SetProperty(ref _filterDate, value); } }
+
         public CustomerMainViewModel(Customer selectedCustomer)
         {
             this.Events = new ObservableCollection<Event>();

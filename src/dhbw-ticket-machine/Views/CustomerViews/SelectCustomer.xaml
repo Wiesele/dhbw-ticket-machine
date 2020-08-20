@@ -14,6 +14,7 @@
                 <GridView>
                     <GridViewColumn Width="240" Header="ID" DisplayMemberBinding="{Binding ID}"/>
                     <GridViewColumn Width="120" Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Width="120" Header="Adresse" DisplayMemberBinding="{Binding Adress}"/>
                 </GridView>
             </ListView.View>
         </ListView>
