@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="dhbw_ticket_machine.ViewModels.AdministrationViewModel">
+    <Position X="5.25" Y="3" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AESEEAQIAAAUABABAAAAAFAAAgABDAAIABAAAAFAAgA=</HashCode>
+      <FileName>ViewModels\AdministrationViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="dhbw_ticket_machine.ViewModels.BindableBase">
+    <Position X="4.5" Y="0.5" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAgAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\BindableBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="dhbw_ticket_machine.ViewModels.CustomerMainViewModel">
+    <Position X="9.25" Y="3" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AkSIAEAAAAAUAABABAAIYAAAAgAACQAEAAAAAAAAAIg=</HashCode>
+      <FileName>ViewModels\CustomerMainViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="dhbw_ticket_machine.ViewModels.SelectCustomerViewModel">
+    <Position X="0.75" Y="3" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAEAAEAAAAAQAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>ViewModels\SelectCustomerViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

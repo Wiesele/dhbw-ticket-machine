@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="dhbw_ticket_machine.Actors.TransactionTypes.BuyTicketTransaction">
+    <Position X="3.75" Y="1" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actors\TransactionTypes\BuyTicketTransaction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="dhbw_ticket_machine.Actors.AdministrationActor">
+    <Position X="3.75" Y="2.5" Width="5.75" />
+    <NestedTypes>
+      <Delegate Name="dhbw_ticket_machine.Actors.AdministrationActor.EventDataChangeHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Actors\AdministrationActor.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="dhbw_ticket_machine.Actors.AdministrationActor.CustomerDataChangeHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Actors\AdministrationActor.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAACAAAAAAAAAAAIACAAAAAABAQAA=</HashCode>
+      <FileName>Actors\AdministrationActor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="dhbw_ticket_machine.actors.TransactionTypes.TransactionType">
+    <Position X="6.75" Y="1" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAABAA=</HashCode>
+      <FileName>Actors\TransactionTypes\TransactionTypes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

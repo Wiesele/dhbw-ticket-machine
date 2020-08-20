@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="dhbw_ticket_machine.Actors.TransactionTypes.BuyTicketTransaction">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actors\TransactionTypes\BuyTicketTransaction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="dhbw_ticket_machine.Actors.AdministrationActor">
+    <Position X="0.5" Y="2" Width="2.5" />
+    <NestedTypes>
+      <Delegate Name="dhbw_ticket_machine.Actors.AdministrationActor.EventDataChangeHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Actors\AdministrationActor.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="dhbw_ticket_machine.Actors.AdministrationActor.CustomerDataChangeHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Actors\AdministrationActor.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAACAAAAAAAAAAAIACAAAAAABAQAA=</HashCode>
+      <FileName>Actors\AdministrationActor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="dhbw_ticket_machine.Converter.DateConverter">
+    <Position X="14.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converter\DateConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="dhbw_ticket_machine.Converter.IntConverter">
+    <Position X="12.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converter\IntConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="dhbw_ticket_machine.Converter.PriceConverter">
+    <Position X="14.5" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converter\PriceConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="dhbw_ticket_machine.Converter.PriceStringConverter">
+    <Position X="12.25" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converter\PriceStringConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="dhbw_ticket_machine.Data.MockDatabase">
+    <Position X="6.5" Y="5.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAgAAAEAAQAAgAAAAAAA=</HashCode>
+      <FileName>Data\MockDatabase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="dhbw_ticket_machine.Extensions.EventExtension">
+    <Position X="9.75" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Extensions\EventExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="dhbw_ticket_machine.Extensions.ObservableCollection">
+    <Position X="9.75" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Extensions\ObservableCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="dhbw_ticket_machine.Models.Customer">
+    <Position X="7.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAQBAAgAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Models\Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="dhbw_ticket_machine.Models.Entity">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Entity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="dhbw_ticket_machine.Models.Event">
+    <Position X="5.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECAAAAIQAQAAAAAAIAABQAAAAEAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Event.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="dhbw_ticket_machine.Models.Ticket">
+    <Position X="3.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAgAAAAAAAAAAAAAACAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Ticket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="dhbw_ticket_machine.ViewModels.AdministrationViewModel">
+    <Position X="9.25" Y="5.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AESEEAQIAAAUABABAAAAAFAAAgABDAAIABAAAAFAAgA=</HashCode>
+      <FileName>ViewModels\AdministrationViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="dhbw_ticket_machine.ViewModels.BindableBase" Collapsed="true">
+    <Position X="13.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAgAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\BindableBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="dhbw_ticket_machine.ViewModels.CustomerMainViewModel">
+    <Position X="16.25" Y="5.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AkSIAEAAAAAUAABABAAIYAAAAgAACQAEAAAAAAAAAIg=</HashCode>
+      <FileName>ViewModels\CustomerMainViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="dhbw_ticket_machine.ViewModels.SelectCustomerViewModel">
+    <Position X="12.5" Y="5.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAEAAEAAAAAQAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>ViewModels\SelectCustomerViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="dhbw_ticket_machine.Views.CustomerViews.CustomerMainPage">
+    <Position X="0.5" Y="10.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAghAAAAAAAAAAEAAQAAAIAAAAAAAABAgAA=</HashCode>
+      <FileName>Views\CustomerViews\CustomerMainPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="dhbw_ticket_machine.Views.CustomerViews.SelectCustomer">
+    <Position X="0.5" Y="8" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\CustomerViews\SelectCustomer.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="dhbw_ticket_machine.Views.CustomerViews.ShowTickets">
+    <Position X="0.5" Y="13.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAIAAAAAAAABAgAA=</HashCode>
+      <FileName>Views\CustomerViews\ShowTickets.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="dhbw_ticket_machine.Views.Administration">
+    <Position X="3.5" Y="8" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAIAAAAkAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Administration.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="dhbw_ticket_machine.Views.CustomerMain">
+    <Position X="3.5" Y="14.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\CustomerMain.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="dhbw_ticket_machine.Views.MainMenu">
+    <Position X="3.5" Y="12.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\MainMenu.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="dhbw_ticket_machine.App">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="dhbw_ticket_machine.MainWindow">
+    <Position X="3.5" Y="10" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="dhbw_ticket_machine.Data.IDatabase">
+    <Position X="4.25" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\IDatabase.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="dhbw_ticket_machine.actors.TransactionTypes.TransactionType">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAABAA=</HashCode>
+      <FileName>Actors\TransactionTypes\TransactionTypes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
