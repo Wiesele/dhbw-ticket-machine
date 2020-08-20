@@ -5,6 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:dhbw_ticket_machine.Views.CustomerViews"
       xmlns:nm="clr-namespace:dhbw_ticket_machine.Models"
+      xmlns:s="clr-namespace:System.Collections;assembly=mscorlib"
+      xmlns:p="clr-namespace:System;assembly=mscorlib"
       xmlns:con="clr-namespace:dhbw_ticket_machine.Converter"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -15,6 +17,20 @@
         <con:PriceStringConverter x:Key="pricestringonverter" />
         <con:IntConverter x:Key="intconverter" />
         <con:NullableDateConverter x:Key="nullabledateconverter" />
+
+        <DataTemplate x:Key="HeaderTemplateArrowUp">
+            <DockPanel>
+                <TextBlock HorizontalAlignment="Center" Text="{Binding}"/>
+                <Path x:Name="arrow" StrokeThickness = "1" Fill = "gray" Data = "M 5,10 L 15,10 L 10,5 L 5,10"/>
+            </DockPanel>
+        </DataTemplate>
+        
+        <DataTemplate x:Key="HeaderTemplateArrowDown">
+            <DockPanel>
+                <TextBlock HorizontalAlignment="Center" Text="{Binding}"/>
+                <Path x:Name="arrow" StrokeThickness = "1" Fill = "gray" Data = "M 5,10 L 15,10 L 10,15 L 5,10"/>
+            </DockPanel>
+        </DataTemplate>
     </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -56,7 +72,7 @@
                 <DatePicker Grid.Row="1" Grid.Column="3" Margin="2" Text="{Binding FilterSellDate, Mode=TwoWay, Converter={StaticResource nullabledateconverter}, StringFormat={}{0:dd.MM.yyyy}}" SelectedDateChanged="DatePicker_SelectedDateChanged"></DatePicker>
             </Grid>
         </Grid>
-        <ListView Grid.Row="1" ItemsSource="{Binding Path=Tickets, Mode=TwoWay}">
+        <ListView GridViewColumnHeader.Click="listView_Click"  Grid.Row="1" ItemsSource="{Binding Path=Tickets, Mode=TwoWay}" Name="listView">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="240" Header="ID" DisplayMemberBinding="{Binding Event.ID}"/>
