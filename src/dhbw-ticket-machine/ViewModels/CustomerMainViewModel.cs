@@ -37,13 +37,16 @@ namespace dhbw_ticket_machine.ViewModels
         private ObservableCollection<Ticket> _tickets;
         public ObservableCollection<Ticket> Tickets { get { return this._tickets; } set { SetProperty(ref _tickets, value); } }
 
+        private ObservableCollection<Ticket> _allTickets;
+        public ObservableCollection<Ticket> AllTickets { get { return this._allTickets; } set { SetProperty(ref _allTickets, value); } }
 
-        private DateTime _filterDate;
-        public DateTime FilterDate { get { return this._filterDate; } set { SetProperty(ref _filterDate, value); } }
+
+        private DateTime? _filterDate;
+        public DateTime? FilterDate { get { return this._filterDate; } set { SetProperty(ref _filterDate, value); } }
 
 
-        private DateTime _filterSellDate;
-        public DateTime FilterSellDate { get { return this._filterDate; } set { SetProperty(ref _filterDate, value); } }
+        private DateTime? _filterSellDate;
+        public DateTime? FilterSellDate { get { return this._filterSellDate; } set { SetProperty(ref _filterSellDate, value); } }
 
         public CustomerMainViewModel(Customer selectedCustomer)
         {
@@ -82,7 +85,9 @@ namespace dhbw_ticket_machine.ViewModels
 
             var collection = new ObservableCollection<Ticket>();
             collection.AddRange(customer.Tickets);
-            this.Tickets = collection;
+            this.AllTickets = collection;
+
+            this.FilterEvents();
 
             return customer;
         }
@@ -133,6 +138,30 @@ namespace dhbw_ticket_machine.ViewModels
             //this.LoadData();
 
             //this.ResetTextFields();
+        }
+
+        public void FilterEvents()
+        {
+            IEnumerable<Ticket> holder = this.AllTickets;
+
+            var changed = false;
+
+            if (this.FilterSellDate.HasValue)
+            {
+                holder = holder.Where(e => e.BoughtDate.Date == this.FilterSellDate.Value.Date);
+                changed = true;
+            }
+            if (this.FilterDate.HasValue)
+            {
+                holder = holder.Where(e => e.Event.Date == this.FilterDate.Value.Date);
+                changed = true;
+            }
+
+            var obs = new ObservableCollection<Ticket>();
+            obs.AddRange(holder);
+            this.Tickets = obs;
+
+
         }
     }
 }

@@ -49,5 +49,9 @@ namespace dhbw_ticket_machine.Views.CustomerViews
             BudgetLabel.Content = this.vm.SelectedCustomer.Budget;
         }
 
+        private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this.vm.FilterEvents();
+        }
     }
 }
