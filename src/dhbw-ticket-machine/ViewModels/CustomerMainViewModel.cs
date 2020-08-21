@@ -63,8 +63,16 @@ namespace dhbw_ticket_machine.ViewModels
             this.SelectedCustomer = selectedCustomer;
         }
 
+        /// <summary>
+        /// Calculate if button to boy tickets is active
+        /// </summary>
         public void CalcButtonActive()
         {
+            // Button aktiv when:
+                // Ticket selected
+                // Ticket currently selling (date)
+                // Tickets are available
+                // A Amount ov tickets to buy has been selected
             this.ButtonActive = this.SelectedEvent != null && this.SelectedEvent.IsCurrentlySelling() && this.SelectedEvent.AvailableTickets > 0 && this.SelectedAmount > 0;
         }
 
@@ -119,6 +127,12 @@ namespace dhbw_ticket_machine.ViewModels
         /// <returns></returns>
         public async Task BuyTickets()
         {
+            if(this.SelectedEvent == null)
+            {
+                this.CalcButtonActive();
+                return;
+            }
+
             // set ticket data
             var ticket = new Ticket()
             {
