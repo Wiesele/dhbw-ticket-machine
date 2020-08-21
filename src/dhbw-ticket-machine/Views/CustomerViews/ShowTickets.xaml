@@ -53,9 +53,8 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="60px"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="60px"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="90px"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Row="0" Grid.Column="0" Content="Name:"></Label>
