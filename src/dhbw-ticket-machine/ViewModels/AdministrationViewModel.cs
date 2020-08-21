@@ -113,6 +113,17 @@ namespace dhbw_ticket_machine.ViewModels
                 return;
             }
 
+            if (newEvent.Date.Date < DateTime.Now.Date)
+            {
+                var msg = MessageBox.Show("Veranstaltung kann nicht in der Vergangenheit liegen!", "Warnung!", MessageBoxButton.OK);
+                return;
+            }
+            else if (newEvent.SaleEnd.Date > newEvent.Date.Date)
+            {
+                var msg = MessageBox.Show("Das Verkaufsende ligt nach der Veranstaltung!", "Warnung!", MessageBoxButton.OK);
+                return;
+            }
+
 
             var actor = MainWindow.ActorSystem.ActorOf<AdministrationActor>();
             // Wait for Item to be inserted
