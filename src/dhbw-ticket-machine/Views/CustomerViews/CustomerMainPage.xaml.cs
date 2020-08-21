@@ -71,6 +71,11 @@ namespace dhbw_ticket_machine.Views.CustomerViews
             this.Slider_ValueChanged(AmountSlider, null);
         }
 
+        /// <summary>
+        /// Check values for slider and update fitting to budget and available tickets
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             if(sender is Slider s)

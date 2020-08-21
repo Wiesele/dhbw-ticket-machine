@@ -5,6 +5,9 @@ using System.Text;
 
 namespace dhbw_ticket_machine.Data
 {
+    /// <summary>
+    /// Interface for Database
+    /// </summary>
     public interface IDatabase
     {
 

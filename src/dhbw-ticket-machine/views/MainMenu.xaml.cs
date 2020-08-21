@@ -23,10 +23,21 @@ namespace dhbw_ticket_machine.Views
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Button Administration click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Administration());
         }
+
+        /// <summary>
+        /// Button Customer click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Customer_Click(object sender, RoutedEventArgs e)
         {
             var page = new CustomerMain();

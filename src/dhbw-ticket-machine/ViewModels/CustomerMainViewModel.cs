@@ -16,8 +16,12 @@ using dhbw_ticket_machine.Models;
 
 namespace dhbw_ticket_machine.ViewModels
 {
+    /// <summary>
+    /// Viewmodel for all customer views (Buying events and listing tickets
+    /// </summary>
     public class CustomerMainViewModel: BindableBase
     {
+        // --- Properties for frontend
         private ObservableCollection<Event> _events;
         public ObservableCollection<Event> Events { get { return this._events; } set { SetProperty(ref _events, value); } }
 
@@ -48,15 +52,20 @@ namespace dhbw_ticket_machine.ViewModels
         private DateTime? _filterSellDate;
         public DateTime? FilterSellDate { get { return this._filterSellDate; } set { SetProperty(ref _filterSellDate, value); } }
 
+        /// <summary>
+        /// Initialize lists and set default values
+        /// </summary>
+        /// <param name="selectedCustomer">Selected customer to load view for</param>
         public CustomerMainViewModel(Customer selectedCustomer)
         {
             this.Events = new ObservableCollection<Event>();
             this.Tickets = new ObservableCollection<Ticket>();
-            this.ResetTextFields();
             this.SelectedCustomer = selectedCustomer;
         }
 
-
+        /// <summary>
+        /// Loads all data for selected customer (events and tickets)
+        /// </summary>
         public async void LoadData()
         {
             this.Events = new ObservableCollection<Event>();
@@ -69,77 +78,64 @@ namespace dhbw_ticket_machine.ViewModels
             this.Events.AddRange(events);
         }
 
+        /// <summary>
+        /// Update all values for customer (Budget, Tickets)
+        /// </summary>
+        /// <returns></returns>
         public async Task<Customer> UpdateCustomerData()
         {
             this.Events = new ObservableCollection<Event>();
 
+            // Ask administration for Customerdata
             var actor = MainWindow.ActorSystem.ActorOf<AdministrationActor>();
             var task = actor.Ask(TransactionType.GetAllCustomer);
 
             var data = await task as IEnumerable<Customer>;
-
+            
+            // Select correct customer
             var customers = data.ToList();
             var customer = customers.Find(e => e.ID == this.SelectedCustomer.ID);
 
             this.SelectedCustomer = customer;
 
+            // Load all tickets
             var collection = new ObservableCollection<Ticket>();
             collection.AddRange(customer.Tickets);
             this.AllTickets = collection;
 
+            // Apply selected filter
             this.FilterEvents();
 
             return customer;
         }
-
-        public async void ResetTextFields()
-        {
-        }
-
+        /// <summary>
+        /// Buys selected ticket 
+        /// </summary>
+        /// <returns></returns>
         public async Task BuyTickets()
         {
+            // set ticket data
             var ticket = new Ticket()
             {
                 Amount = this.SelectedAmount,
                 EventId = this.SelectedEvent.ID,
             };
 
+            // create transaction
             var transaction = new BuyTicketTransaction()
             {
                 Ticket = ticket,
                 CustomerId = this.SelectedCustomer.ID
             };
 
-            //var newEvent = new Event()
-            //{
-            //    Date = this.NewDate,
-            //    Location = this.NewLocation,
-            //    Name = this.NewName,
-            //    Price = this.NewPrice,
-            //    DaysBeforSalesStart = this.DaysBefore,
-            //    TotalTicketAmount = this.TicketAmount,
-            //    ID = Guid.NewGuid()
-            //};
-
-            //if (!newEvent.IsValid())
-            //{
-            //    var msg = MessageBox.Show("Nicht alle Felder wurden gefüllt!", "Warnung!", MessageBoxButton.OK);
-            //    return;
-            //}
-
-
+            // tell administration to buy ticket
             var actor = MainWindow.ActorSystem.ActorOf<AdministrationActor>();
             actor.Tell(transaction);
-            //// Wait for Item to be inserted
-            //var task = actor.Ask(newEvent);
-            //await task;
-
-            //// Reload List
-            //this.LoadData();
-
-            //this.ResetTextFields();
         }
 
+        /// <summary>
+        /// Filter list of events to selected filter values
+        /// </summary>
         public void FilterEvents()
         {
             IEnumerable<Ticket> holder = this.AllTickets;

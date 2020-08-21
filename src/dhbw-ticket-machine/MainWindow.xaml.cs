@@ -22,6 +22,9 @@ namespace dhbw_ticket_machine
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Actorsystem of app
+        /// </summary>
         public static ActorSystem ActorSystem { get; set; }
 
         public MainWindow()

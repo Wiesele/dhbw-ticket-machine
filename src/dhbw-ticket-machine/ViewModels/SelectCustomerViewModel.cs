@@ -10,6 +10,9 @@ using System.Text;
 
 namespace dhbw_ticket_machine.ViewModels
 {
+    /// <summary>
+    /// Viewmodel for selecting a customer
+    /// </summary>
     public class SelectCustomerViewModel: BindableBase
     {
         public SelectCustomerViewModel()
@@ -25,6 +28,9 @@ namespace dhbw_ticket_machine.ViewModels
         private ObservableCollection<Customer> _customer;
         public ObservableCollection<Customer> Customer { get { return this._customer; } set { SetProperty(ref _customer, value); } }
 
+        /// <summary>
+        /// Load all customer data
+        /// </summary>
         public async void LoadData()
         {
             var actor = MainWindow.ActorSystem.ActorOf<AdministrationActor>();

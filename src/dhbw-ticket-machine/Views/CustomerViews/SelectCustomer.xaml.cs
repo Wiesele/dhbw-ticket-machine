@@ -26,6 +26,11 @@ namespace dhbw_ticket_machine.Views.CustomerViews
             DataContext = vm;
         }
 
+        /// <summary>
+        /// When customer is selected -> Load CustomerMainPage
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if(vm.SelectedCustomer != null)

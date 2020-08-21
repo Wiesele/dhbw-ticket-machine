@@ -5,6 +5,9 @@ using System.Text;
 
 namespace dhbw_ticket_machine.Models
 {
+    /// <summary>
+    /// Entity for Ticket
+    /// </summary>
     public class Ticket: Entity
     {
         public Guid EventId { get; set; }

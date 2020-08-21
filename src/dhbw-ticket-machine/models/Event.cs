@@ -5,6 +5,9 @@ using System.Windows.Media;
 
 namespace dhbw_ticket_machine.Models
 {
+    /// <summary>
+    /// Entity for Event
+    /// </summary>
     public class Event: Entity
     {
         public string Name { get; set; }

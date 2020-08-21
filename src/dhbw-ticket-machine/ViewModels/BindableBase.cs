@@ -7,7 +7,10 @@ using System.Windows.Controls;
 
 namespace dhbw_ticket_machine.ViewModels
 {
-    public class BindableBase : INotifyPropertyChanged
+    /// <summary>
+    /// Baseclass to update bindings automaticaly
+    /// </summary>
+    public abstract class BindableBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

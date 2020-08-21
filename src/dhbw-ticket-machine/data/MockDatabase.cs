@@ -6,6 +6,9 @@ using System.Text;
 
 namespace dhbw_ticket_machine.Data
 {
+    /// <summary>
+    /// Mockdatabase with seed data
+    /// </summary>
     public class MockDatabase: IDatabase
     {
         /// <summary>

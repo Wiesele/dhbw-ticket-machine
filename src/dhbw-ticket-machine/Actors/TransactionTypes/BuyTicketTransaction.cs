@@ -5,6 +5,9 @@ using System.Text;
 
 namespace dhbw_ticket_machine.Actors.TransactionTypes
 {
+    /// <summary>
+    /// Transaction for buying tickets
+    /// </summary>
     public class BuyTicketTransaction
     {
         public Ticket Ticket { get; set; }

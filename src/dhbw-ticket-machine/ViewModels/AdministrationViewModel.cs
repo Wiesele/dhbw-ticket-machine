@@ -17,9 +17,12 @@ using dhbw_ticket_machine.Models;
 
 namespace dhbw_ticket_machine.ViewModels
 {
+    /// <summary>
+    /// Viewmodel for Administration view
+    /// </summary>
     public class AdministrationViewModel : BindableBase
     {
-
+        // --- Properties for data to show in fronte end
         private ObservableCollection<Event> _events;
         public ObservableCollection<Event> Events { get { return this._events; } set { SetProperty(ref _events, value); } }
 
@@ -46,12 +49,16 @@ namespace dhbw_ticket_machine.ViewModels
         private ObservableCollection<string> _suggestions;
         public ObservableCollection<string> Suggestions { get { return this._suggestions; } set { SetProperty(ref _suggestions, value); } }
 
+        /// <summary>
+        /// Setup all lists and default all values
+        /// </summary>
         public AdministrationViewModel()
         {
             this.Events = new ObservableCollection<Event>();
             this.Suggestions = new ObservableCollection<string>();
             this.ResetTextFields();
 
+            // Subscribe to fitting events
             AdministrationActor.EventDataChange += EventDataChange;
         }
 
@@ -60,6 +67,10 @@ namespace dhbw_ticket_machine.ViewModels
             this.LoadData();
         }
 
+        /// <summary>
+        /// Load list of suggestions for a location
+        /// </summary>
+        /// <param name="start">search term</param>
         public void LoadSuggestions(string start)
         {
             var values = this.Events.GroupBy(e => e.Location).Where(e => e.Key.StartsWith(start)).Select(e => e.Key).OrderBy(e => e);
@@ -69,6 +80,9 @@ namespace dhbw_ticket_machine.ViewModels
             this.Suggestions = collection;
         }
 
+        /// <summary>
+        /// Load all events
+        /// </summary>
         public async void LoadData()
         {
             this.Events = new ObservableCollection<Event>();
@@ -82,6 +96,9 @@ namespace dhbw_ticket_machine.ViewModels
             this.LoadSuggestions("");
         }
 
+        /// <summary>
+        /// Reset all inputs
+        /// </summary>
         public async void ResetTextFields()
         {
             this.NewPrice = 0;
@@ -93,8 +110,12 @@ namespace dhbw_ticket_machine.ViewModels
             this.DaysBefore = 0;
         }
 
+        /// <summary>
+        /// Save new event
+        /// </summary>
         public async Task SaveNewEvent()
         {
+            // New Event
             var newEvent = new Event()
             {
                 Date = this.NewDate,
@@ -107,27 +128,32 @@ namespace dhbw_ticket_machine.ViewModels
                 ID = Guid.NewGuid()
             };
 
+            // If data is missing -> show texbox and return 
             if (!newEvent.IsValid())
             {
                 var msg = MessageBox.Show("Nicht alle Felder wurden gefüllt!", "Warnung!", MessageBoxButton.OK);
                 return;
             }
 
+            // Check if event date is in the past 
             if (newEvent.Date.Date < DateTime.Now.Date)
             {
                 var msg = MessageBox.Show("Veranstaltung kann nicht in der Vergangenheit liegen!", "Warnung!", MessageBoxButton.OK);
                 return;
             }
+
+            // Check if sales end is after event date
             else if (newEvent.SaleEnd.Date > newEvent.Date.Date)
             {
                 var msg = MessageBox.Show("Das Verkaufsende ligt nach der Veranstaltung!", "Warnung!", MessageBoxButton.OK);
                 return;
             }
 
-
+            // get admin actor and start transaction
             var actor = MainWindow.ActorSystem.ActorOf<AdministrationActor>();
-            // Wait for Item to be inserted
             actor.Tell(newEvent);
+
+            // reset all inputs
             this.ResetTextFields();
         }
     }
