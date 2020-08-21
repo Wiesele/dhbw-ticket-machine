@@ -50,7 +50,15 @@ namespace dhbw_ticket_machine
                 }
                 else if (msg == MessageBoxResult.Yes)
                 {
-                    Application.Current.Shutdown();
+                    var msg2 = MessageBox.Show("Die Anwendung wird beendet. Alle geänderten Daten gehen verloren!\n\n Fortfahren?", "Warnung!", MessageBoxButton.YesNo);
+                    if (msg2 == MessageBoxResult.No)
+                    {
+                        e.Cancel = true;
+                    }
+                    else if (msg2 == MessageBoxResult.Yes)
+                    {
+                        Application.Current.Shutdown();
+                    }
                 }
             }
             else
