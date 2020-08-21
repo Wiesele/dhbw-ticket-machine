@@ -51,7 +51,7 @@
                 <Label Grid.Row="0" Grid.Column="2" Content="Id:"></Label>
                 <Label Grid.Row="0" Grid.Column="3" Content="{Binding SelectedEvent.ID }"></Label>
 
-                <Label Grid.Row="0" Grid.Column="4" Content="Name:"></Label>
+                <Label Grid.Row="0" Grid.Column="4" Content="Veranstaltung:"></Label>
                 <Label Grid.Row="0" Grid.Column="5" Content="{Binding SelectedEvent.Name }"></Label>
 
                 <Label Grid.Row="1" Grid.Column="2" Content="Anzahl:"></Label>
