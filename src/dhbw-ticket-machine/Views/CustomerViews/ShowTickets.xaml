@@ -10,7 +10,7 @@
       xmlns:con="clr-namespace:dhbw_ticket_machine.Converter"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ShowTickets">
+      Title="Ticket übersicht">
     <Page.Resources>
         <con:DateConverter x:Key="dateconverter" />
         <con:PriceConverter x:Key="priceonverter" />

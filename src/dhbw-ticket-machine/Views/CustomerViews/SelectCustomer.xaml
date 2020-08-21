@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:dhbw_ticket_machine.Views.CustomerViews"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="SelectCustomer">
+      Title="Kunden auswahl">
 
     <Grid>
         <ListView Grid.Row="1" ItemsSource="{Binding Path=Customer, Mode=TwoWay}" SelectedItem="{Binding SelectedCustomer}" MouseDoubleClick="ListView_MouseDoubleClick">
