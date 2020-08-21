@@ -5,8 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:dhbw_ticket_machine.Views"
         mc:Ignorable="d"
-        Title="Kundenansicht" Height="800" Width="1200"  Loaded="Window_Loaded">
+        Title="Kundenansicht" Height="800" Width="1200"  Loaded="Window_Loaded" Closing="Window_Closing">
     <Grid>
-        <Frame Name="mainFrame"></Frame>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20px"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DockPanel>
+            <Menu>
+                <MenuItem Header="_Menü">
+                    <MenuItem Header="_Rollenauswahl" Click="MenuItem_Click"></MenuItem>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+        <Frame Name="mainFrame" Grid.Row="1"></Frame>
     </Grid>
 </Window>
