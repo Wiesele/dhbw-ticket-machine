@@ -92,6 +92,11 @@ namespace dhbw_ticket_machine.Views.CustomerViews
                         s.Maximum = this.vm.SelectedEvent.AvailableTickets;
 
                     }
+
+                    if(s.Value > s.Maximum || s.Maximum < this.vm.SelectedAmount)
+                    {
+                        this.vm.SelectedAmount = (int)s.Maximum;
+                    }
                 }
                 this.vm.CalcButtonActive();
             }
