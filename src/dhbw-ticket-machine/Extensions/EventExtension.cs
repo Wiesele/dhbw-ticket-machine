@@ -17,7 +17,7 @@ namespace dhbw_ticket_machine.Extensions
         /// <returns>true when event is valid</returns>
         public static bool IsValid(this Event ev)
         {
-            if(!string.IsNullOrEmpty(ev.Location) && !string.IsNullOrEmpty(ev.Name) && ev.Price > 0 && ev.Date != null && ev.TotalTicketAmount > 0 && ev.DaysBeforSalesStart > 0 )
+            if(!string.IsNullOrEmpty(ev.Location) && !string.IsNullOrEmpty(ev.Name) && ev.Price > 0 && ev.Date != null && ev.TotalTicketAmount > 0 && ev.DaysBeforSalesStart >= 0 )
             {
                 return true;
             }
