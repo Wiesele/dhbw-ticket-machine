@@ -38,5 +38,18 @@ namespace dhbw_ticket_machine
         {
             mainFrame.NavigationService.Navigate(new MainMenu());
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            var msg = MessageBox.Show("Die gesamte Anwendung wird beendet! \n\n Fortfahren?", "Warnung!", MessageBoxButton.YesNo);
+            if(msg == MessageBoxResult.No)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                Application.Current.Shutdown();
+            }
+        }
     }
 }
