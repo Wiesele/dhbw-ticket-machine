@@ -159,17 +159,14 @@ namespace dhbw_ticket_machine.ViewModels
         {
             IEnumerable<Ticket> holder = this.AllTickets;
 
-            var changed = false;
 
             if (this.FilterSellDate.HasValue)
             {
                 holder = holder.Where(e => e.BoughtDate.Date == this.FilterSellDate.Value.Date);
-                changed = true;
             }
             if (this.FilterDate.HasValue)
             {
-                holder = holder.Where(e => e.Event.Date == this.FilterDate.Value.Date);
-                changed = true;
+                holder = holder.Where(e => e.Event.Date.Date == this.FilterDate.Value.Date);
             }
 
             var obs = new ObservableCollection<Ticket>();
