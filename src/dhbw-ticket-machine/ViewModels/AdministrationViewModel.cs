@@ -136,14 +136,14 @@ namespace dhbw_ticket_machine.ViewModels
             }
 
             // Check if event date is in the past 
-            if (newEvent.Date.Date < DateTime.Now.Date)
+            if (newEvent.Date.Date <= DateTime.Now.Date)
             {
                 var msg = MessageBox.Show("Veranstaltung kann nicht in der Vergangenheit liegen!", "Warnung!", MessageBoxButton.OK);
                 return;
             }
 
             // Check if sales end is after event date
-            else if (newEvent.SaleEnd.Date > newEvent.Date.Date)
+            else if (newEvent.SaleEnd.Date >= newEvent.Date.Date)
             {
                 var msg = MessageBox.Show("Das Verkaufsende liegt nach der Veranstaltung!", "Warnung!", MessageBoxButton.OK);
                 return;
