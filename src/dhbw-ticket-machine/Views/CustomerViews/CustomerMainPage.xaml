@@ -82,7 +82,7 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="240" Header="ID" DisplayMemberBinding="{Binding ID}"/>
-                    <GridViewColumn Width="120" Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Width="240" Header="Name" DisplayMemberBinding="{Binding Name}"/>
                     <GridViewColumn Width="120" Header="Ort" DisplayMemberBinding="{Binding Location}"/>
                     <GridViewColumn Width="120" Header="Datum" DisplayMemberBinding="{Binding Date, StringFormat={}{0:dd.MM.yyyy}}"/>
                     <GridViewColumn Width="120" Header="Verkaufsstart" DisplayMemberBinding="{Binding SaleStart, StringFormat={}{0:dd.MM.yyyy}}"/>

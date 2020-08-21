@@ -75,7 +75,7 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="240" Header="ID" DisplayMemberBinding="{Binding Event.ID}"/>
-                    <GridViewColumn Width="120" Header="Name" DisplayMemberBinding="{Binding Event.Name}"/>
+                    <GridViewColumn Width="240" Header="Name" DisplayMemberBinding="{Binding Event.Name}"/>
                     <GridViewColumn Width="120" Header="Ort" DisplayMemberBinding="{Binding Event.Location}"/>
                     <GridViewColumn Width="120" Header="Datum" DisplayMemberBinding="{Binding Event.Date, StringFormat={}{0:dd.MM.yyyy}}"/>
                     <GridViewColumn Width="120" Header="Gekaufte Anzahl" DisplayMemberBinding="{Binding Amount}"/>
