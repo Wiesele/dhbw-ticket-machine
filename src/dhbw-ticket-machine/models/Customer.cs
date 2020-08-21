@@ -4,6 +4,9 @@ using System.Text;
 
 namespace dhbw_ticket_machine.Models
 {
+    /// <summary>
+    /// Entity for Customer
+    /// </summary>
     public class Customer: Entity
     {
         public Customer()

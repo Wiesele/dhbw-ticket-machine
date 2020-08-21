@@ -145,7 +145,7 @@ namespace dhbw_ticket_machine.ViewModels
             // Check if sales end is after event date
             else if (newEvent.SaleEnd.Date > newEvent.Date.Date)
             {
-                var msg = MessageBox.Show("Das Verkaufsende ligt nach der Veranstaltung!", "Warnung!", MessageBoxButton.OK);
+                var msg = MessageBox.Show("Das Verkaufsende liegt nach der Veranstaltung!", "Warnung!", MessageBoxButton.OK);
                 return;
             }
 
