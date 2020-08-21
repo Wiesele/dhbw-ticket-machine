@@ -107,7 +107,7 @@ namespace dhbw_ticket_machine.Data
                 {
                     ID = Guid.NewGuid(),
                     Adress = "Halbmeil",
-                    Name = "Axel Schmidke",
+                    Name = "Axel Schmidtke",
                     AnualBudget = 850,
                     Budget = 850,
                 },
