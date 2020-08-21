@@ -50,7 +50,12 @@ namespace dhbw_ticket_machine.Views
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if(Application.Current.Windows.Count < 2)
+            // When in Debug windows.count is doubled 
+            var multiplier = 1;
+#if DEBUG
+            multiplier = 2;
+#endif
+            if (Application.Current.Windows.Count < (2 * multiplier))
             {
                 var msg = MessageBox.Show("Die Anwendung wird beendet. Alle geänderten Daten gehen verloren!\n\n Fortfahren?", "Warnung!", MessageBoxButton.YesNo);
                 if (msg == MessageBoxResult.No)
