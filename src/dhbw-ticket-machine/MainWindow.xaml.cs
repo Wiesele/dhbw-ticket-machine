@@ -41,14 +41,29 @@ namespace dhbw_ticket_machine
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            var msg = MessageBox.Show("Die gesamte Anwendung wird beendet! \n\n Fortfahren?", "Warnung!", MessageBoxButton.YesNo);
-            if(msg == MessageBoxResult.No)
+            if (Application.Current.Windows.OfType<CustomerMain>().Any())
             {
-                e.Cancel = true;
+                var msg = MessageBox.Show("Alle geöffneten Fenster schließen?", "Warnung!", MessageBoxButton.YesNoCancel);
+                if (msg == MessageBoxResult.Cancel)
+                {
+                    e.Cancel = true;
+                }
+                else if (msg == MessageBoxResult.Yes)
+                {
+                    Application.Current.Shutdown();
+                }
             }
             else
             {
-                Application.Current.Shutdown();
+                var msg = MessageBox.Show("Die Anwendung wird beendet. Alle geänderten Daten gehen verloren!\n\n Fortfahren?", "Warnung!", MessageBoxButton.YesNo);
+                if (msg == MessageBoxResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else if (msg == MessageBoxResult.Yes)
+                {
+                    Application.Current.Shutdown();
+                }
             }
         }
     }
