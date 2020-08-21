@@ -63,7 +63,7 @@
                         <ColumnDefinition Width="50px"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
 
-                    <Slider Grid.Column="0" Minimum="1" ValueChanged="Slider_ValueChanged" Name="AmountSlider" Value="{Binding SelectedAmount}"></Slider>
+                    <Slider Grid.Column="0" Minimum="0" ValueChanged="Slider_ValueChanged" Name="AmountSlider" Value="{Binding SelectedAmount}"></Slider>
                     <Label Grid.Column="1" Content="{Binding SelectedAmount}"></Label>
                 </Grid>
                 

@@ -29,10 +29,10 @@ namespace dhbw_ticket_machine.ViewModels
         public Customer SelectedCustomer { get { return this._selectedCustomer; } set { SetProperty(ref _selectedCustomer, value); } }
 
         public Event _selectedEvent;
-        public Event SelectedEvent { get { return this._selectedEvent; } set { SetProperty(ref _selectedEvent, value); this.ButtonActive = value != null && value.IsCurrentlySelling() && value.AvailableTickets > 0; } }
+        public Event SelectedEvent { get { return this._selectedEvent; } set { SetProperty(ref _selectedEvent, value);  } }
 
         private int _selectedAmount;
-        public int SelectedAmount { get { return this._selectedAmount; } set { SetProperty(ref _selectedAmount, value); } }
+        public int SelectedAmount { get { return this._selectedAmount; } set { SetProperty(ref _selectedAmount, value); this.CalcButtonActive(); } }
 
         private bool _buttonActive;
         public bool ButtonActive { get { return this._buttonActive; } set { SetProperty(ref _buttonActive, value); } }
@@ -61,6 +61,11 @@ namespace dhbw_ticket_machine.ViewModels
             this.Events = new ObservableCollection<Event>();
             this.Tickets = new ObservableCollection<Ticket>();
             this.SelectedCustomer = selectedCustomer;
+        }
+
+        public void CalcButtonActive()
+        {
+            this.ButtonActive = this.SelectedEvent != null && this.SelectedEvent.IsCurrentlySelling() && this.SelectedEvent.AvailableTickets > 0 && this.SelectedAmount > 0;
         }
 
         /// <summary>

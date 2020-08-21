@@ -93,6 +93,7 @@ namespace dhbw_ticket_machine.Views.CustomerViews
 
                     }
                 }
+                this.vm.CalcButtonActive();
             }
         }
 
